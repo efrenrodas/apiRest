@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 //Route::resource('cliente',ClienteController::class);
+Route::group(['middleware'=>'cors'], function(){
 
 Route::get('clientes',[ClienteController::class,'index']);
 
@@ -34,3 +35,5 @@ Route::delete('clientes/eliminar/{id}',[ClienteController::class,'destroy']);
 
 
 Route::get('login',[ClienteController::class,'login']);
+
+});

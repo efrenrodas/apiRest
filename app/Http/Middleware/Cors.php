@@ -16,7 +16,10 @@ class Cors
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        return $next($request)
+        ->header("Acces-Control-Allow-Origin",'*')
+        ->header("Acces-Control-Allow-Methods",'GET,POST,PUT,DELETE')
+        ->header("Acces-Control-Allow-Headers","X-Requested-With, Content-Type, X-Toker-Auth, Autorization");
 
         //Url a la que se le dará acceso en las peticiones
     //   ->header("Access-Control-Allow-Origin", "http://urlfronted.example")
